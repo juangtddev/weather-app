@@ -1,5 +1,4 @@
-/* reset */
-
+/* Reset styles for consistent rendering across browsers */
 * {
   margin: 0;
   padding: 0;
@@ -9,8 +8,15 @@
 
 body {
   background-color: #222;
+  color: #fff; /* Ensure good contrast on dark background */
+  min-height: 100vh; /* Make sure the body stretches to full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* Adds padding around edges for smaller screens */
 }
 
+/* Card styling */
 .card {
   width: 90%;
   max-width: 470px;
@@ -20,8 +26,17 @@ body {
   border-radius: 20px;
   padding: 40px 35px;
   text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Added shadow for depth */
+  transition: transform 0.3s ease; /* Smooth transition on hover */
 }
 
+.card:hover {
+  transform: scale(
+    1.02
+  ); /* Slightly enlarge the card on hover for interactivity */
+}
+
+/* Search bar styling */
 .search {
   width: 100%;
   display: flex;
@@ -40,6 +55,12 @@ body {
   flex: 1;
   margin-right: 16px;
   font-size: 1.125rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for input depth */
+  transition: background 0.3s ease; /* Smooth background change on focus */
+}
+
+.search input:focus {
+  background: #dff9f6; /* Lighter background when focused */
 }
 
 .search button {
@@ -50,11 +71,22 @@ body {
   width: 60px;
   height: 60px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.3s ease; /* Transition on hover */
+}
+
+.search button:hover {
+  background: #dff9f6; /* Lighter background on hover */
+  transform: scale(1.1); /* Slight enlarge effect on hover */
 }
 
 .search button img {
   width: 25px;
 }
+
+/* Weather information */
 
 .weather-icon {
   width: 170px;
@@ -80,6 +112,7 @@ body {
   margin-top: 50px;
 }
 
+/* Flex container for each weather detail */
 .col {
   display: flex;
   align-items: center;
@@ -97,14 +130,18 @@ body {
   margin-top: -6px;
 }
 
+/* Hidden by default, only displayed when weather data is available */
 .weather {
   display: none;
 }
 
+/* Error message styling */
 .error {
   text-align: left;
   margin-left: 10px;
   font-size: 14px;
   margin-top: 10px;
+  color: #ff0000; /* Red color to indicate error */
+  font-weight: 500;
   display: none;
 }
